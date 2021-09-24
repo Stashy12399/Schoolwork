@@ -1,2 +1,2 @@
 # Schoolwork
-# uhh this is just schoolwork, its basic stuff so yeah take whatever u want idc
+# uhh this is just schoolwork, its just random stuff that i made when i was bored or just stuff that was homework \.
