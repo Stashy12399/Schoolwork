@@ -24,7 +24,7 @@ try:
     unit_converterthebest()
 except ValueError  as e:
     print("you entered a letter , not a number")
-#error catcher :)
+#error catcher :) (im a fkn god)
  
 # this was my first proper project , super basic since its only multiplying stuff but oh well here it is
 
