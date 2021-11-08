@@ -1,0 +1,84 @@
+function coinflip () {
+    basic.showIcon(IconNames.Diamond)
+    basic.showIcon(IconNames.SmallDiamond)
+    basic.showIcon(IconNames.Diamond)
+    basic.showIcon(IconNames.SmallDiamond)
+    if (Math.randomBoolean()) {
+        basic.showIcon(IconNames.SmallDiamond)
+        basic.showString("H")
+    } else {
+        basic.showIcon(IconNames.Diamond)
+        basic.showString("T")
+    }
+}
+function card () {
+    Hearts = images.iconImage(IconNames.Heart)
+    diamonds = images.createImage(`
+        . . # . .
+        . # . # .
+        # . . . #
+        . # . # .
+        . . # . .
+        `)
+    Clubs = images.createImage(`
+        . # # # .
+        # . . . #
+        # # # # #
+        # . # . #
+        . . # . .
+        `)
+    Spades = images.createImage(`
+        . . # . .
+        . # # # .
+        # # # # #
+        # . # . #
+        . . # . .
+        `)
+    cardSymbol = randint(1, 4)
+    CardNum = randint(1, 13)
+    if (CardNum == 1) {
+        basic.showString("A")
+    } else if (CardNum == 11) {
+        basic.showString(" JACK")
+    } else if (CardNum == 12) {
+        basic.showString("  KING")
+    } else if (CardNum == 13) {
+        basic.showString("  QUEEN")
+    } else {
+        basic.showNumber(CardNum)
+    }
+    if (cardSymbol == 1) {
+        Hearts.showImage(0)
+    } else if (cardSymbol == 2) {
+        diamonds.showImage(0)
+    } else if (cardSymbol == 3) {
+        Clubs.showImage(0)
+    } else {
+        Spades.showImage(0)
+    }
+}
+input.onButtonPressed(Button.A, function () {
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    diceroll()
+})
+input.onButtonPressed(Button.AB, function () {
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    card()
+})
+input.onButtonPressed(Button.B, function () {
+    music.playTone(262, music.beat(BeatFraction.Whole))
+    coinflip()
+})
+function diceroll () {
+    music.startMelody(music.builtInMelody(Melodies.BaDing), MelodyOptions.Once)
+    basic.showNumber(randint(1, 6))
+}
+let CardNum = 0
+let cardSymbol = 0
+let Spades: Image = null
+let Clubs: Image = null
+let diamonds: Image = null
+let Hearts: Image = null
+basic.showString("A-DICE,B-FLIP,A+B-CARD")
+
+// a micro:bit project(group work)~ this is the code in javascript. If you want to run it , paste it into the microbit makecode ide
